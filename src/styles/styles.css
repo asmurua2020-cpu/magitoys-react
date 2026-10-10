@@ -1,0 +1,736 @@
+/* ============================================================
+   ESTILOS GENERALES
+   Fuente, reset de márgenes, paddings y tamaños base
+   ============================================================ */
+
+/* Google Fonts - Fuente principal del proyecto */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap");
+
+/* Reset general: elimina márgenes y paddings por defecto del navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Tipografía base */
+h1 {
+    font-size: 50px;
+    line-height: 64px;
+    color: #222;
+}
+
+h2 {
+    font-size: 36px;
+    line-height: 44px;
+    color: #222;
+}
+
+h4 {
+    font-size: 20px;
+    color: #222;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+    margin: 15px 0 20px 0;
+}
+
+body {
+    width: 100%;
+}
+
+/* Clases utilitarias de espaciado reutilizadas en varias secciones */
+.section-p1 {
+    padding: 40px 80px;
+}
+
+.section-m1 {
+    margin: 40px 0;
+}
+
+
+/* ============================================================
+   HEADER Y NAVEGACIÓN
+   Barra superior fija con logo y menú
+   ============================================================ */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: #fff8f0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    /* El header queda fijo en la parte superior al hacer scroll */
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+/* Logo de texto con emoji */
+.logo-texto {
+    font-size: 22px;
+    font-weight: 900;
+    color: #e84393;
+    text-decoration: none;
+}
+
+/* Lista de navegación horizontal */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar li {
+    list-style: none;
+    padding: 0 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #e84393;
+}
+
+/* Botón hamburguesa - oculto en desktop, visible en mobile */
+.mobile {
+    display: none;
+    align-items: center;
+}
+
+/* Botón cerrar menú mobile */
+.close {
+    display: none;
+}
+
+/* Responsive: menú deslizante desde la derecha en pantallas pequeñas */
+@media (max-width: 799px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: #fff8f0;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+    }
+
+    .navbar li {
+        margin-bottom: 25px;
+    }
+
+    .mobile {
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile i {
+        color: #1a1a1a;
+        font-size: 24px;
+        padding-left: 20px;
+    }
+
+    /* Clase que se agrega con JS para mostrar el menú */
+    .active {
+        right: 0px;
+    }
+
+    .close {
+        display: initial;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        color: #222;
+        font-size: 24px;
+    }
+}
+
+
+/* ============================================================
+   HERO
+   Sección principal con fondo degradado y texto destacado
+   (Sin imagen externa: usa un degradado colorido de juguetería)
+   ============================================================ */
+
+.hero {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 40%, #ffd6e0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    width: 100%;
+    padding: 0 80px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decoración de fondo con círculos */
+.hero::before {
+    content: "🌟 🎈 🚀 🎠 🎪 🎡 🎢";
+    position: absolute;
+    font-size: 60px;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    letter-spacing: 40px;
+    opacity: 0.2;
+}
+
+.hero .hero-content {
+    text-align: center;
+    z-index: 1;
+}
+
+.hero .hero-content h4 {
+    color: #c0392b;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.hero .hero-content h2 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero .hero-content h1 {
+    color: #e84393;
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.hero .hero-content p {
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+.hero .hero-content button {
+    background-color: #e84393;
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hero .hero-content button:hover {
+    background-color: #c0306e;
+    transform: scale(1.05);
+}
+
+/* Responsive Hero */
+@media (max-width: 768px) {
+    .hero {
+        height: 70vh;
+        padding: 0 40px;
+    }
+    .hero .hero-content h1 { font-size: 2.5rem; }
+    .hero .hero-content h2 { font-size: 1.8rem; }
+}
+
+@media (max-width: 576px) {
+    .hero { height: 60vh; padding: 0 20px; }
+    .hero .hero-content h1 { font-size: 2rem; }
+    .hero .hero-content h2 { font-size: 1.5rem; }
+    .hero .hero-content p { font-size: 0.9rem; }
+}
+
+
+/* ============================================================
+   SECCIÓN PRODUCTOS
+   Grilla de 4 cards con emoji, descripción y precio
+   Usa Flexbox para distribuir los productos
+   ============================================================ */
+
+.section-productos {
+    text-align: center;
+}
+
+.section-productos h2 {
+    color: #222;
+}
+
+/* Contenedor Flexbox de las cards */
+.section-productos .productos-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* Card individual de producto */
+.section-productos .productos-container .producto {
+    width: 22%;
+    min-width: 220px;
+    padding: 20px 15px;
+    border-radius: 20px;
+    border: 2px solid #ffd6e0;
+    cursor: pointer;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Imagen del producto (emoji grande como placeholder) */
+.section-productos .productos-container .producto .producto-imagen {
+    width: 100%;
+    height: 180px;
+    background-color: #fff8f0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+/* Descripción dentro de la card */
+.section-productos .productos-container .producto .producto-descripcion {
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.section-productos .productos-container .producto .producto-descripcion span {
+    color: #999;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.section-productos .productos-container .producto .producto-descripcion h5 {
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* Precio del producto */
+.section-productos .productos-container .producto .producto-descripcion h4 {
+    padding-top: 7px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #e84393;
+}
+
+/* Efecto hover en la card */
+.section-productos .productos-container .producto:hover {
+    box-shadow: 0 10px 30px rgba(232, 67, 147, 0.15);
+    transform: translateY(-5px);
+    border-color: #e84393;
+}
+
+/* Botón agregar al carrito */
+.section-productos .productos-container .producto .carrito {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 12px;
+    border-radius: 50px;
+    background-color: #e84393;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.section-productos .productos-container .producto .carrito:hover {
+    background-color: #c0306e;
+}
+
+/* Responsive Productos */
+@media (max-width: 992px) {
+    .section-productos .productos-container .producto { width: 45%; }
+}
+
+@media (max-width: 576px) {
+    .section-productos { padding: 20px 15px; }
+    .section-productos .productos-container .producto { width: 100%; min-width: unset; }
+}
+
+
+/* ============================================================
+   BANNER
+   Sección promocional con fondo de color llamativo
+   ============================================================ */
+
+.banner {
+    width: 100%;
+    height: 35vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 40px;
+}
+
+.banner h4 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+.banner h2 {
+    color: #fff;
+    font-size: 28px;
+    padding: 10px 0;
+}
+
+.banner span {
+    color: #ffd700;
+    font-weight: 900;
+}
+
+.banner button {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 30px;
+    color: #764ba2;
+    background-color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+}
+
+.banner button:hover {
+    background: #ffd700;
+    color: #333;
+}
+
+/* Responsive Banner */
+@media (max-width: 768px) {
+    .banner { height: 30vh; }
+    .banner h2 { font-size: 22px; }
+}
+
+@media (max-width: 576px) {
+    .banner { height: auto; padding: 30px 20px; }
+    .banner h2 { font-size: 18px; }
+}
+
+
+/* ============================================================
+   NEWSLETTER
+   Sección de suscripción con fondo oscuro e input de email
+   ============================================================ */
+
+.newsletter {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #2d1b69;
+}
+
+.newsletter h4 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.newsletter p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #a89bc9;
+}
+
+.newsletter p span {
+    color: #ffd700;
+}
+
+/* Formulario de suscripción */
+.newsletter .form {
+    display: flex;
+    width: 40%;
+}
+
+.newsletter .form input {
+    height: 3.125rem;
+    padding: 0 1.25rem;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 50px 0 0 50px;
+    outline: none;
+}
+
+.newsletter .form button {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 15px 30px;
+    color: #fff;
+    background-color: #e84393;
+    white-space: nowrap;
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+}
+
+.newsletter .form button:hover {
+    background-color: #c0306e;
+}
+
+/* Responsive Newsletter */
+@media (max-width: 992px) {
+    .newsletter .form { width: 80%; }
+}
+
+@media (max-width: 768px) {
+    .newsletter { flex-direction: column; align-items: flex-start; }
+    .newsletter .newstext { margin-bottom: 20px; width: 100%; }
+}
+
+@media (max-width: 576px) {
+    .newsletter { padding: 20px 15px; }
+    .newsletter .form { width: 100%; }
+}
+
+
+/* ============================================================
+   SECCIÓN RESEÑAS
+   Opiniones de clientes usando CSS Grid de 3 columnas
+   ============================================================ */
+
+.section-resenias {
+    text-align: center;
+    background-color: #fdf6fb;
+}
+
+.section-resenias h2 {
+    font-size: 32px;
+    color: #222;
+}
+
+.section-resenias > p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Grid de 3 columnas para las cards */
+.resenias-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding-top: 20px;
+}
+
+/* Card individual de reseña */
+.resenia-card {
+    background-color: #fff;
+    border: 2px solid #ffd6e0;
+    border-radius: 20px;
+    padding: 25px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.resenia-card:hover {
+    box-shadow: 0 8px 25px rgba(232, 67, 147, 0.15);
+    transform: translateY(-4px);
+}
+
+/* Estrellas de calificación */
+.resenia-estrellas i {
+    color: #f5a623;
+    font-size: 14px;
+}
+
+.resenia-card > p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Datos del autor de la reseña */
+.resenia-autor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid #ffd6e0;
+    padding-top: 12px;
+    margin-top: auto;
+}
+
+/* Avatar con emoji en lugar de imagen */
+.resenia-autor .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    border: 2px solid #ffd6e0;
+    flex-shrink: 0;
+}
+
+.resenia-autor h5 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.resenia-autor span {
+    font-size: 12px;
+    color: #e84393;
+    font-weight: 600;
+}
+
+/* Responsive Reseñas */
+@media (max-width: 992px) {
+    .resenias-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .section-resenias { padding: 20px 15px; }
+    .section-resenias h2 { font-size: 24px; }
+    .resenias-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+
+/* ============================================================
+   FOOTER
+   Pie de página con columnas de información
+   ============================================================ */
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #1a1a2e;
+}
+
+footer .col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+footer h4 {
+    font-size: 15px;
+    font-weight: 800;
+    padding-bottom: 15px;
+    color: #fff;
+}
+
+footer p {
+    font-size: 13px;
+    margin: 0 0 8px 0;
+    color: #a0a0c0;
+}
+
+footer a {
+    font-size: 13px;
+    text-decoration: none;
+    color: #a0a0c0;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+
+footer .follow {
+    margin-top: 20px;
+}
+
+footer .follow i {
+    color: #a0a0c0;
+    padding-right: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+footer .follow i:hover,
+footer a:hover {
+    color: #e84393;
+}
+
+footer .copyright {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+footer .copyright p {
+    color: #666;
+    font-size: 13px;
+    margin: 0;
+}
+
+/* Responsive Footer */
+@media (max-width: 992px) {
+    footer .col { width: 45%; margin-bottom: 25px; }
+}
+
+@media (max-width: 576px) {
+    footer { flex-direction: column; }
+    footer .col { width: 100%; margin-bottom: 30px; }
+}
+/* ===== Estilos agregados para React ===== */
+
+.section-productos .productos-container .producto .producto-imagen {
+    height: 140px;
+}
+
+.section-productos .productos-container .producto .producto-imagen img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+}

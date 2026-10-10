@@ -1,0 +1,18 @@
+[
+  {
+    "id": 101,
+    "nombre": "Osito de peluche Teddy",
+    "categoria": "Peluches",
+    "descripcion": "Acompaña a los niños a dormir",
+    "precio": 10499,
+    "imagen": "/imagen/e4cd643a-0a38-47b9-963c-f94e1a5ad342.jpg"
+  },
+  {
+    "id": 102,
+    "nombre": "Kit Educativo Astronauta",
+    "categoria": "Educativo",
+    "descripcion": "Descubre la exploración espacial",
+    "precio": 11899,
+    "imagen": "/imagen/astronauta.jpg"
+  }
+]
